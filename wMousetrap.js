@@ -8,31 +8,29 @@
 angular.module('mgo-mousetrap', []).directive('wMousetrap', function () {
     return {
         restrict: 'A',
-        controller: ['$scope', '$element', '$attrs',
-                     function ($scope, $element, $attrs) {
-            
+        link: (scope, element, attrs) {
             var mousetrap;
 
-            $scope.$watch($attrs.wMousetrap, function(_mousetrap) {
+            scope.$watch(attrs.wMousetrap, function(_mousetrap) {
                 mousetrap = _mousetrap;
 
                 for (var key in mousetrap) {
                     if (mousetrap.hasOwnProperty(key)) {
                         Mousetrap.unbind(key);
-                        Mousetrap.bind(key, applyWrapper(mousetrap[key])); 
+                        Mousetrap.bind(key, applyWrapper(mousetrap[key]));
                     }
                 }
             }, true);
-            
+
             function applyWrapper(func) {
                 return function(e) {
-                    $scope.$apply(function() {
+                    scope.$apply(function() {
                         func(e);
                     });
                 };
             }
-            
-            $element.bind('$destroy', function() {
+
+            element.bind('$destroy', function() {
                 if (!mousetrap) return;
 
                 for (var key in mousetrap) {
@@ -41,7 +39,6 @@ angular.module('mgo-mousetrap', []).directive('wMousetrap', function () {
                     }
                 }
             });
-
-        }]
+        }
     }
 });

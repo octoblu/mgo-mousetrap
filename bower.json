@@ -1,11 +1,11 @@
 {
   "name": "mgo-mousetrap",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "./wMousetrap.js",
   "description": "Handling keyboard interaction on an Angular app: An Angular Mousetrap wrapper",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mgonto/mgo-mousetrap.git"
+    "url": "git://github.com/octoblu/mgo-mousetrap.git"
   },
   "dependencies": {
     "angular": "*",

@@ -8,7 +8,7 @@
 angular.module('mgo-mousetrap', []).directive('wMousetrap', function () {
     return {
         restrict: 'A',
-        link: (scope, element, attrs) {
+        link: function(scope, element, attrs) {
             var mousetrap;
 
             scope.$watch(attrs.wMousetrap, function(_mousetrap) {
@@ -40,5 +40,5 @@ angular.module('mgo-mousetrap', []).directive('wMousetrap', function () {
                 }
             });
         }
-    }
+    };
 });

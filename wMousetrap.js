@@ -29,16 +29,6 @@ angular.module('mgo-mousetrap', []).directive('wMousetrap', function () {
                     });
                 };
             }
-
-            element.bind('$destroy', function() {
-                if (!mousetrap) return;
-
-                for (var key in mousetrap) {
-                    if (mousetrap.hasOwnProperty(key)) {
-                        Mousetrap.unbind(key);
-                    }
-                }
-            });
         }
     };
 });
